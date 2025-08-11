@@ -1,8 +1,6 @@
 package ma.enset.ebankingbackend.services;
 
-import ma.enset.ebankingbackend.dtos.CurrentBankAccountDTO;
-import ma.enset.ebankingbackend.dtos.CustomerDTO;
-import ma.enset.ebankingbackend.dtos.SavingBankAccountDTO;
+import ma.enset.ebankingbackend.dtos.*;
 import ma.enset.ebankingbackend.entities.BankAccount;
 
 import ma.enset.ebankingbackend.exceptions.BalanceNotSufficientException;
@@ -19,16 +17,22 @@ public interface BankAccountService {
 
 
     List<CustomerDTO> listCustomers();
-    BankAccount getBankAccount(String accountId) throws BankAccountNotFoundException;
+    BankAccountDTO getBankAccount(String accountId) throws BankAccountNotFoundException;
     void debit(String accountId, double amount, String description) throws BankAccountNotFoundException, BalanceNotSufficientException;
     void credit(String accountId, double amount, String description) throws BankAccountNotFoundException;
     void transfer(String accountIdSource, String accountIdDestination, double amount) throws BankAccountNotFoundException, BalanceNotSufficientException;
 
-    List<BankAccount> bankAccountList();
+    List<BankAccountDTO> bankAccountList();
 
     CustomerDTO getCustomer(Long customerId) throws CustomerNotFoundException;
 
     CustomerDTO updateCustomer(CustomerDTO customerDTO);
 
     void deleteCustomer(Long customerId);
+
+    List<AccountOperationDTO> accountHistory(String accountId);
+
+    AccountHistoryDTO getAccountHistory(String accountId, int page, int size) throws BankAccountNotFoundException;
+
+    List<CustomerDTO> searchCustomers(String keyword);
 }
