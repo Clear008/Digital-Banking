@@ -14,7 +14,7 @@ It handles authentication, business logic, database operations, and provides a s
 - Java 17+
 - Spring Boot, Spring Security
 - Maven
-- MySQL / MongoDB
+-  H2 In-Memory Database
 
 ## ▶️ Run Locally
 ```bash
