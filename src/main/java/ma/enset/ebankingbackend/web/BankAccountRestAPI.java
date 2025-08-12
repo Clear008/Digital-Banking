@@ -1,15 +1,13 @@
 package ma.enset.ebankingbackend.web;
 
-import ma.enset.ebankingbackend.dtos.AccountHistoryDTO;
-import ma.enset.ebankingbackend.dtos.AccountOperationDTO;
-import ma.enset.ebankingbackend.dtos.BankAccountDTO;
+import ma.enset.ebankingbackend.dtos.*;
+import ma.enset.ebankingbackend.exceptions.BalanceNotSufficientException;
 import ma.enset.ebankingbackend.exceptions.BankAccountNotFoundException;
 import ma.enset.ebankingbackend.services.BankAccountService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-public class BankAccountRestAPI {
     @RestController
     @CrossOrigin("*")
     public class BankAccountRestAPI {
